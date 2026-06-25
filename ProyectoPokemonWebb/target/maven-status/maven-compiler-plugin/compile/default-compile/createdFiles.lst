@@ -1,0 +1,16 @@
+servlet\LogoutServlet.class
+modelo\Historial.class
+service\PokemonService.class
+servlet\HistoricoServlet.class
+modelo\Pokemon.class
+com\mycompany\proyectopokemonwebb\JakartaRestConfiguration.class
+servlet\LoginServlet.class
+servlet\PokemonServlet.class
+dao\TestUsuario.class
+servlet\AleatorioServlet.class
+com\mycompany\proyectopokemonwebb\resources\JakartaEE10Resource.class
+dao\UsuarioDAO.class
+dao\HistorialDAO.class
+modelo\Usuario.class
+util\MongoConexion.class
+servlet\RegistroServlet.class
