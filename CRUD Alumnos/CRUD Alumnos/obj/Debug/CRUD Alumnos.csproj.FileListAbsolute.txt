@@ -1,0 +1,12 @@
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\bin\Debug\CRUD Alumnos.exe.config
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\obj\Debug\CRUD_Alumnos.FrmPrincipal.resources
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\obj\Debug\CRUD_Alumnos.Properties.Resources.resources
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\obj\Debug\CRUD Alumnos.csproj.GenerateResource.Cache
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\bin\Debug\CRUD Alumnos.exe
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\bin\Debug\CRUD Alumnos.pdb
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\obj\Debug\CRUD Alumnos.exe
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\obj\Debug\CRUD Alumnos.pdb
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\obj\Debug\CRUD Alumnos.csprojResolveAssemblyReference.cache
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\obj\Debug\CRUD_Alumnos.AgregarAlumno.resources
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\obj\Debug\CRUD_Alumnos.EliminarEditarAl.resources
+C:\Users\k-re0\Documents\Visual Studio 2013\Projects\Practicas\CRUD Alumnos\CRUD Alumnos\obj\Debug\CRUD_Alumnos.frmEditar.resources
