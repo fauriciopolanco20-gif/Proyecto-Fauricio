@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% block title %}Detalle Cliente{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+        <div class="card detail-card mt-4">
+
+            <div class="card-header text-white text-center fs-5 rounded-top">
+                <i class="bi bi-person-vcard-fill me-2"></i>Detalle del cliente
+            </div>
+
+            <div class="card-body p-4 d-flex flex-column gap-3">
+
+                <div class="detail-row">
+                    <span class="label">ID</span>
+                    <span class="value">#{{ cliente.id }}</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="label">Nombre</span>
+                    <span class="value">{{ cliente.nombre }}</span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="label">Empleado encargado</span>
+                    <span class="value">
+                        {% if cliente.empleado %}
+                            {{ cliente.empleado.nombre }}
+                        {% else %}
+                            Sin asignar
+                        {% endif %}
+                    </span>
+                </div>
+
+                <div class="detail-row">
+                    <span class="label">Estado</span>
+                    <span class="badge bg-success">
+                        <i class="bi bi-check-circle me-1"></i>Activo
+                    </span>
+                </div>
+
+                <a href="/clientes/" class="btn btn-secondary w-100 mt-2">
+                    <i class="bi bi-arrow-left me-1"></i>Volver
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

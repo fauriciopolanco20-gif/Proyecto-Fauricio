@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Nuevo Empleado{% endblock %}
+
+{% block content %}
+
+<div class="row justify-content-center">
+    <div class="col-md-7">
+
+        <div class="page-header">
+            <div class="page-eyebrow">Empleados</div>
+            <h3><i class="bi bi-person-plus-fill me-2"></i>Nuevo empleado</h3>
+        </div>
+
+        <div class="card">
+            <div class="card-body p-4">
+
+                <form method="POST">
+                    {% csrf_token %}
+
+                    <div class="mb-4">
+                        <label class="form-label">Nombre del empleado</label>
+                        <input
+                            type="text"
+                            name="nombre"
+                            class="form-control"
+                            placeholder="Ingrese nombre"
+                            required>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-success">
+                            <i class="bi bi-check-lg me-1"></i>Guardar empleado
+                        </button>
+                        <a href="/empleados/" class="btn btn-secondary">Cancelar</a>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

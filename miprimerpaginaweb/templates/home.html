@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="page-header text-center">
+    <div class="page-eyebrow">Panel principal</div>
+    <h1>Bienvenido de nuevo, Fauricio</h1>
+    <p class="text-muted">Aquí tienes un resumen de tu sistema de administración.</p>
+</div>
+
+<div class="row g-4 mb-5">
+
+    <div class="col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon bg-clientes"><i class="bi bi-people-fill"></i></div>
+            <div>
+                <div class="stat-number">{{ total_clientes }}</div>
+                <div class="text-muted">Clientes registrados</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="stat-card">
+            <div class="stat-icon bg-empleados"><i class="bi bi-person-badge-fill"></i></div>
+            <div>
+                <div class="stat-number">{{ total_empleados }}</div>
+                <div class="text-muted">Empleados registrados</div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<div class="row g-4 justify-content-center">
+
+    <div class="col-md-5">
+        <div class="action-card">
+            <div class="action-icon bg-clientes"><i class="bi bi-people-fill"></i></div>
+            <h5>Clientes</h5>
+            <p class="text-muted">Crear, editar y administrar tu cartera de clientes.</p>
+            <a href="/clientes/" class="btn btn-primary">
+                Gestionar clientes <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+    </div>
+
+    <div class="col-md-5">
+        <div class="action-card">
+            <div class="action-icon bg-empleados"><i class="bi bi-person-badge-fill"></i></div>
+            <h5>Empleados</h5>
+            <p class="text-muted">Crear, editar y administrar tu equipo de trabajo.</p>
+            <a href="/empleados/" class="btn btn-success">
+                Gestionar empleados <i class="bi bi-arrow-right ms-1"></i>
+            </a>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}
