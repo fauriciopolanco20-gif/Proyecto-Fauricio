@@ -1,0 +1,217 @@
+/* Variables del Sistema */
+:root {
+    --bg-primary: #f8fafc;
+    --card-bg: #ffffff;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --primary-indigo: #6366f1;
+    --primary-hover: #4f46e5;
+    --success-emerald: #10b981;
+    --success-hover: #059669;
+    --danger-rose: #f43f5e;
+    --danger-hover: #e11d48;
+    --border-color: #e2e8f0;
+    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Estilos Globales */
+body {
+    background-color: var(--bg-primary);
+    color: var(--text-main);
+    font-family: var(--font-family);
+    -webkit-font-smoothing: antialiased;
+    letter-spacing: -0.01em;
+}
+
+/* Transiciones Suaves */
+a, button, input, select, .card {
+    transition: all 0.2s ease-in-out;
+}
+
+/* Barra de Navegación Glassmorphic */
+.navbar-custom {
+    background: rgba(15, 23, 42, 0.9) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 1rem 0;
+}
+.navbar-custom .navbar-brand {
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #a5b4fc, #818cf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.navbar-custom .nav-link {
+    font-weight: 500;
+    color: #94a3b8 !important;
+    margin-right: 1.5rem;
+}
+.navbar-custom .nav-link:hover, 
+.navbar-custom .nav-link.active {
+    color: #ffffff !important;
+}
+
+/* Tarjetas (Cards) Modernas */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+}
+.card.hover-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Botones Premium */
+.btn {
+    border-radius: 10px;
+    padding: 0.6rem 1.2rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: -0.01em;
+}
+.btn-primary {
+    background-color: var(--primary-indigo);
+    border-color: var(--primary-indigo);
+}
+.btn-primary:hover, .btn-primary:focus {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    transform: translateY(-1px);
+}
+.btn-success {
+    background-color: var(--success-emerald);
+    border-color: var(--success-emerald);
+}
+.btn-success:hover, .btn-success:focus {
+    background-color: var(--success-hover);
+    border-color: var(--success-hover);
+    transform: translateY(-1px);
+}
+.btn-danger {
+    background-color: var(--danger-rose);
+    border-color: var(--danger-rose);
+}
+.btn-danger:hover, .btn-danger:focus {
+    background-color: var(--danger-hover);
+    border-color: var(--danger-hover);
+    transform: translateY(-1px);
+}
+.btn-secondary {
+    background-color: #64748b;
+    border-color: #64748b;
+}
+.btn-secondary:hover {
+    background-color: #475569;
+    border-color: #475569;
+}
+
+/* Tablas Modernas */
+.table-responsive-container {
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
+.table {
+    margin-bottom: 0;
+    background-color: var(--card-bg);
+}
+.table thead th {
+    background-color: #f1f5f9;
+    color: #475569;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+}
+.table tbody td {
+    padding: 1.2rem 1.5rem;
+    vertical-align: middle;
+    color: var(--text-main);
+    border-bottom: 1px solid var(--border-color);
+}
+.table-hover tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+/* Formularios Premium */
+.form-label {
+    font-weight: 600;
+    color: #334155;
+    font-size: 0.875rem;
+    margin-bottom: 0.5rem;
+}
+.form-control, .form-select {
+    border-radius: 10px;
+    border: 1px solid #cbd5e1;
+    padding: 0.75rem 1rem;
+    font-size: 0.95rem;
+    background-color: #ffffff;
+}
+.form-control:focus, .form-select:focus {
+    border-color: var(--primary-indigo);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.15);
+    background-color: #ffffff;
+}
+
+/* Estilos para el Login Glassmorphism */
+.login-body {
+    background: radial-gradient(circle at 10% 20%, rgba(99, 102, 241, 0.15) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(6, 182, 212, 0.15) 0%, transparent 40%),
+                #0f172a;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.login-card {
+    background: rgba(30, 41, 59, 0.7);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 24px;
+    color: #ffffff;
+    padding: 2.5rem;
+    width: 100%;
+    max-width: 440px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+.login-card h3 {
+    font-weight: 800;
+    letter-spacing: -0.03em;
+}
+.login-card .form-control {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
+.login-card .form-control:focus {
+    border-color: var(--primary-indigo);
+    box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.3);
+    background: rgba(15, 23, 42, 0.8);
+}
+.login-card .input-group-text {
+    background: rgba(15, 23, 42, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: #94a3b8;
+}
+
+/* Indicadores y Alertas */
+.alert-custom {
+    border-radius: 12px;
+    border: none;
+    padding: 1rem 1.25rem;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+.alert-custom-success {
+    background-color: #d1fae5;
+    color: #065f46;
+}

@@ -1,110 +1,77 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
-Detalle Cliente
+Detalle de Cliente | Sistema
 {% endblock %}
-
-
 
 {% block content %}
 
-
-
 <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
 
-
-    <div class="col-md-6">
-
-
-        <div class="card shadow-lg rounded-4">
-
-
-            <div class="card-header bg-primary text-white text-center fs-5">
-
-                👤 Detalle del Cliente
-
+        <div class="card border-0 shadow-sm overflow-hidden">
+            
+            <!-- Encabezado con Fondo Degradado -->
+            <div class="p-4 text-center text-white" style="background: linear-gradient(135deg, var(--primary-indigo) 0%, #4f46e5 100%);">
+                <i class="bi bi-person-bounding-box display-4 mb-2 d-block"></i>
+                <h4 class="fw-bold mb-0">Ficha Informativa</h4>
+                <p class="text-indigo-light mb-0" style="color: #c7d2fe; font-size: 0.9rem;">Información detallada del cliente registrado</p>
             </div>
 
-
-
+            <!-- Cuerpo del Detalle -->
             <div class="card-body p-4">
-
-
-
-                <div class="mb-3 p-2 bg-light rounded">
-
-                    <strong>ID:</strong> 
-                    {{ cliente.id }}
-
-                </div>
-
-
-
-
-                <div class="mb-3 p-2 bg-light rounded">
-
-                    <strong>Nombre:</strong>
-                    {{ cliente.nombre }}
-
-                </div>
-
-
-
-
-                <div class="mb-3 p-2 bg-light rounded">
-
-                    <strong>Empleado encargado:</strong>
-
-
-                    {% if cliente.empleado %}
-
-                        {{ cliente.empleado.nombre }}
-
-                    {% else %}
-
-                        Sin asignar
-
-                    {% endif %}
-
+                
+                <div class="list-group list-group-flush mb-4">
+                    
+                    <div class="list-group-item d-flex justify-content-between align-items-center py-3 border-0 bg-transparent">
+                        <span class="text-muted"><i class="bi bi-hash me-2"></i> Identificador (ID)</span>
+                        <span class="fw-bold text-dark fs-5">#{{ cliente.id }}</span>
+                    </div>
+                    
+                    <div class="list-group-item d-flex justify-content-between align-items-center py-3 border-0 border-top bg-transparent">
+                        <span class="text-muted"><i class="bi bi-person-fill me-2"></i> Nombre Completo</span>
+                        <span class="fw-semibold text-dark">{{ cliente.nombre }}</span>
+                    </div>
+                    
+                    <div class="list-group-item d-flex justify-content-between align-items-center py-3 border-0 border-top bg-transparent">
+                        <span class="text-muted"><i class="bi bi-person-badge-fill me-2"></i> Asesor Encargado</span>
+                        <span>
+                            {% if cliente.empleado %}
+                            <span class="badge bg-light text-dark border p-2 px-3 rounded-pill">
+                                {{ cliente.empleado.nombre }}
+                            </span>
+                            {% else %}
+                            <span class="badge bg-light text-muted border p-2 px-3 rounded-pill">
+                                Sin asignar
+                            </span>
+                            {% endif %}
+                        </span>
+                    </div>
+                    
+                    <div class="list-group-item d-flex justify-content-between align-items-center py-3 border-0 border-top bg-transparent">
+                        <span class="text-muted"><i class="bi bi-shield-check me-2"></i> Estado Cuenta</span>
+                        <span class="badge bg-success-subtle text-success p-2 px-3 rounded-pill fw-bold">
+                            Activo
+                        </span>
+                    </div>
 
                 </div>
 
-
-
-
-                <div class="mb-3">
-
-                    <strong>Estado:</strong>
-
-                    <span class="badge bg-success">
-                        Activo
-                    </span>
-
+                <!-- Botones y Acciones -->
+                <div class="d-flex gap-2">
+                    <a href="/cliente/editar/{{ cliente.id }}/" class="btn btn-warning d-inline-flex align-items-center justify-content-center gap-2 flex-grow-1">
+                        <i class="bi bi-pencil-square"></i> Editar Información
+                    </a>
+                    <a href="/clientes/" class="btn btn-secondary d-inline-flex align-items-center justify-content-center gap-2 px-4">
+                        <i class="bi bi-arrow-left"></i> Volver
+                    </a>
                 </div>
-
-
-
-
-                <a href="/clientes/" class="btn btn-secondary w-100 mt-3">
-
-                    ⬅ Volver
-
-                </a>
-
-
 
             </div>
-
 
         </div>
 
-
     </div>
-
-
 </div>
-
-
 
 {% endblock %}

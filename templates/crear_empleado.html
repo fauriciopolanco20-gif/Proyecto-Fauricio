@@ -1,82 +1,54 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
-Nuevo Empleado
+Nuevo Empleado | Sistema
 {% endblock %}
-
-
 
 {% block content %}
 
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
 
+        <div class="card border-0 shadow-sm p-4">
+            <div class="card-body">
 
-<div class="container mt-4">
+                <h3 class="fw-bold text-dark mb-4" style="letter-spacing: -0.03em;">
+                    <i class="bi bi-person-fill-gear text-success me-2"></i>Registrar Nuevo Empleado
+                </h3>
 
+                <form method="POST">
+                    {% csrf_token %}
 
-    <div class="card shadow p-4">
+                    <!-- Campo Nombre -->
+                    <div class="mb-4">
+                        <label class="form-label">
+                            <i class="bi bi-person me-1 text-muted"></i> Nombre Completo del Empleado
+                        </label>
+                        <input 
+                            type="text"
+                            name="nombre"
+                            class="form-control"
+                            placeholder="Ej. Carlos Mendoza"
+                            required>
+                        <div class="form-text text-muted">Ingrese el nombre completo del asesor o empleado.</div>
+                    </div>
 
+                    <!-- Botones de Acción -->
+                    <div class="d-flex gap-2 mt-5">
+                        <button type="submit" class="btn btn-success text-white d-inline-flex align-items-center gap-2 px-4">
+                            <i class="bi bi-cloud-arrow-up-fill"></i> Guardar Empleado
+                        </button>
+                        <a href="/empleados/" class="btn btn-secondary d-inline-flex align-items-center gap-2 px-4">
+                            <i class="bi bi-arrow-left"></i> Volver
+                        </a>
+                    </div>
 
-        <h3 class="mb-4">
-            👨‍💼 Nuevo Empleado
-        </h3>
-
-
-
-        <form method="POST">
-
-
-            {% csrf_token %}
-
-
-
-            <div class="mb-3">
-
-
-                <label class="form-label">
-                    Nombre del empleado
-                </label>
-
-
-
-                <input 
-                    type="text"
-                    name="nombre"
-                    class="form-control"
-                    placeholder="Ingrese nombre"
-                    required>
-
+                </form>
 
             </div>
-
-
-
-
-            <button class="btn btn-success">
-
-                Guardar Empleado
-
-            </button>
-
-
-
-
-            <a href="/empleados/" class="btn btn-secondary">
-
-                Cancelar
-
-            </a>
-
-
-
-        </form>
-
+        </div>
 
     </div>
-
-
 </div>
-
-
 
 {% endblock %}

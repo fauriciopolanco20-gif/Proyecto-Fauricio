@@ -1,189 +1,96 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
-Empleados
+Empleados | Sistema
 {% endblock %}
-
-
 
 {% block content %}
 
-
-
-<div class="d-flex justify-content-between align-items-center mb-3">
-
-
-    <h3>
-        👨‍💼 Lista de Empleados
-    </h3>
-
-
-
-    <form method="GET" class="d-flex">
-
-        <input 
-            type="text"
-            name="buscar"
-            class="form-control"
-            placeholder="Buscar empleado..."
-            value="{{ buscar|default:'' }}">
-
-
-        <button class="btn btn-dark ms-2">
-            🔎 Buscar
-        </button>
-
-
-    </form>
-
-
-
-
-    <div>
-
-
-        <a href="/empleado/crear/" class="btn btn-success">
-            ➕ Nuevo Empleado
+<!-- Cabecera -->
+<div class="row align-items-center mb-4">
+    <div class="col-md-6 mb-3 mb-md-0">
+        <h3 class="fw-bold text-dark mb-1" style="letter-spacing: -0.03em;">
+            👨‍💼 Gestión de Empleados
+        </h3>
+        <p class="text-muted mb-0">Administra los asesores, edita su información y registra nuevas incorporaciones.</p>
+    </div>
+    <div class="col-md-6 text-md-end">
+        <a href="/empleado/crear/" class="btn btn-success text-white d-inline-flex align-items-center gap-2 shadow-sm">
+            <i class="bi bi-person-plus-fill fs-5"></i> Registrar Nuevo Empleado
         </a>
-
-
     </div>
-
-
-
 </div>
 
-
-
-
-
-<div class="card shadow">
-
-
-    <div class="card-body">
-
-
-
-        <table class="table table-bordered table-hover">
-
-
-            <thead class="table-dark">
-
-
-                <tr>
-
-                    <th>ID</th>
-
-                    <th>Nombre</th>
-
-                    <th>Fecha</th>
-
-                    <th>Acciones</th>
-
-
-                </tr>
-
-
-            </thead>
-
-
-
-            <tbody>
-
-
-
-            {% for empleado in empleados %}
-
-
-
-                <tr>
-
-
-                    <td>
-                        {{ empleado.id }}
-                    </td>
-
-
-
-                    <td>
-                        {{ empleado.nombre }}
-                    </td>
-
-
-
-                    <td>
-                        {{ empleado.fecha|date:"d/m/Y H:i" }}
-                    </td>
-
-
-
-                    <td>
-
-
-                        <a href="/empleado/editar/{{ empleado.id }}/"
-                           class="btn btn-warning btn-sm">
-
-                            ✏ Editar
-
-                        </a>
-
-
-
-
-                        <a href="/empleado/eliminar/{{ empleado.id }}/"
-                           class="btn btn-danger btn-sm"
-                           onclick="return confirm('¿Seguro que deseas eliminar este empleado?')">
-
-                            🗑 Eliminar
-
-                        </a>
-
-
-
-                    </td>
-
-
-
-                </tr>
-
-
-
-            {% empty %}
-
-
-
-                <tr>
-
-
-                    <td colspan="4" class="text-center">
-
-                        No hay empleados registrados
-
-                    </td>
-
-
-                </tr>
-
-
-
-            {% endfor %}
-
-
-
-            </tbody>
-
-
-        </table>
-
-
-
-    </div>
-
-
+<!-- Filtros y Búsqueda -->
+<div class="card border-0 shadow-sm p-3 mb-4">
+    <form method="GET" class="row g-3 align-items-center">
+        <div class="col-md-8 col-lg-9">
+            <div class="input-group">
+                <span class="input-group-text bg-white border-end-0">
+                    <i class="bi bi-search text-muted"></i>
+                </span>
+                <input 
+                    type="text"
+                    name="buscar"
+                    class="form-control border-start-0 ps-0"
+                    placeholder="Escribe el nombre del empleado que deseas buscar..."
+                    value="{{ buscar|default:'' }}">
+            </div>
+        </div>
+        <div class="col-md-4 col-lg-3 d-grid">
+            <button type="submit" class="btn btn-dark d-inline-flex align-items-center justify-content-center gap-2">
+                <i class="bi bi-funnel"></i> Filtrar Resultados
+            </button>
+        </div>
+    </form>
 </div>
 
-
-
+<!-- Tabla de Resultados -->
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <div class="table-responsive-container">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th style="width: 80px;">ID</th>
+                        <th>Nombre Completo</th>
+                        <th>Fecha de Alta</th>
+                        <th class="text-end" style="width: 240px;">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for empleado in empleados %}
+                    <tr>
+                        <td class="fw-semibold text-muted">#{{ empleado.id }}</td>
+                        <td class="fw-bold text-dark">{{ empleado.nombre }}</td>
+                        <td>
+                            <span class="badge bg-light text-dark border p-2 px-3 rounded-pill">
+                                <i class="bi bi-calendar3 me-1 text-success"></i> {{ empleado.fecha|date:"d/m/Y H:i" }}
+                            </span>
+                        </td>
+                        <td class="text-end">
+                            <div class="d-inline-flex gap-2">
+                                <a href="/empleado/editar/{{ empleado.id }}/" class="btn btn-warning btn-sm d-inline-flex align-items-center gap-1" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">
+                                    <i class="bi bi-pencil-square"></i> Editar
+                                </a>
+                                <a href="/empleado/eliminar/{{ empleado.id }}/" class="btn btn-danger btn-sm d-inline-flex align-items-center gap-1" onclick="return confirm('¿Seguro que deseas dar de baja a este empleado?')" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">
+                                    <i class="bi bi-trash-fill"></i> Dar de Baja
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="4" class="text-center py-5">
+                            <i class="bi bi-briefcase text-muted display-4 mb-3 d-block"></i>
+                            <p class="text-muted mb-0">No se encontraron empleados registrados en este momento.</p>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

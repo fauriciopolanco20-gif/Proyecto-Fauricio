@@ -1,133 +1,128 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
-Dashboard
+Dashboard | Sistema
 {% endblock %}
-
-
 
 {% block content %}
 
-
-<div class="text-center mb-5">
-
-    <h1>
-        Bienvenido al sistema de Fauricio 👋
-    </h1>
-
-    <p class="text-muted">
-        Panel principal de administración
-    </p>
-
+<!-- Header de Bienvenida -->
+<div class="row align-items-center mb-5">
+    <div class="col-lg-8">
+        <h1 class="display-5 fw-bold text-dark mb-2" style="letter-spacing: -0.04em;">
+            Bienvenido al sistema de Fauricio <span class="wave">👋</span>
+        </h1>
+        <p class="text-muted fs-5 mb-0">
+            Panel principal de administración para clientes y empleados.
+        </p>
+    </div>
+    <div class="col-lg-4 text-lg-end mt-3 mt-lg-0">
+        <span class="badge bg-light text-dark border p-2 px-3 rounded-pill">
+            <i class="bi bi-clock-history me-1 text-indigo"></i> Último acceso: Hoy
+        </span>
+    </div>
 </div>
 
+<!-- Tarjetas de Estadísticas Rápidas -->
+<div class="row mb-5">
 
-
-<div class="row mb-4">
-
+    <div class="col-md-6 mb-4 mb-md-0">
+        <div class="card border-0 hover-card p-4 h-100" style="background: linear-gradient(135deg, #ffffff 0%, #f5f7ff 100%); border-left: 5px solid var(--primary-indigo) !important;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="text-muted fw-semibold text-uppercase fs-7 d-block mb-1">Clientes Registrados</span>
+                    <h2 class="display-6 fw-bold mb-0 text-dark">
+                        {{ total_clientes }}
+                    </h2>
+                </div>
+                <div class="bg-indigo-light p-3 rounded-circle" style="background-color: rgba(99, 102, 241, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-people-fill text-indigo fs-3" style="color: var(--primary-indigo);"></i>
+                </div>
+            </div>
+            <div class="mt-3">
+                <a href="/clientes/" class="text-indigo fw-semibold text-decoration-none d-inline-flex align-items-center gap-1" style="color: var(--primary-indigo);">
+                    Ver lista completa <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </div>
 
     <div class="col-md-6">
-
-        <div class="card shadow text-center p-4">
-
-            <h2>
-                👥 {{ total_clientes }}
-            </h2>
-
-            <p class="text-muted">
-                Clientes registrados
-            </p>
-
+        <div class="card border-0 hover-card p-4 h-100" style="background: linear-gradient(135deg, #ffffff 0%, #f4fbf7 100%); border-left: 5px solid var(--success-emerald) !important;">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <span class="text-muted fw-semibold text-uppercase fs-7 d-block mb-1">Empleados Activos</span>
+                    <h2 class="display-6 fw-bold mb-0 text-dark">
+                        {{ total_empleados }}
+                    </h2>
+                </div>
+                <div class="bg-success-light p-3 rounded-circle" style="background-color: rgba(16, 185, 129, 0.1); width: 60px; height: 60px; display: flex; align-items: center; justify-content: center;">
+                    <i class="bi bi-briefcase-fill text-success fs-3" style="color: var(--success-emerald);"></i>
+                </div>
+            </div>
+            <div class="mt-3">
+                <a href="/empleados/" class="text-success fw-semibold text-decoration-none d-inline-flex align-items-center gap-1" style="color: var(--success-emerald);">
+                    Ver lista completa <i class="bi bi-arrow-right"></i>
+                </a>
+            </div>
         </div>
-
     </div>
-
-
-
-    <div class="col-md-6">
-
-        <div class="card shadow text-center p-4">
-
-            <h2>
-                👨‍💼 {{ total_empleados }}
-            </h2>
-
-            <p class="text-muted">
-                Empleados registrados
-            </p>
-
-        </div>
-
-    </div>
-
 
 </div>
 
+<!-- Accesos Directos de Administración -->
+<h4 class="fw-bold mb-4 text-dark" style="letter-spacing: -0.02em;">Accesos Rápidos</h4>
 
+<div class="row">
 
-
-<div class="row justify-content-center">
-
-
-    <div class="col-md-5 mb-4">
-
-
-        <div class="card shadow text-center p-4">
-
-
-            <h3>
-                👥 Clientes
-            </h3>
-
-
-            <p class="text-muted">
-                Crear, editar y administrar clientes
-            </p>
-
-
-            <a href="/clientes/" class="btn btn-primary">
-                Gestionar Clientes
-            </a>
-
-
+    <div class="col-md-6 mb-4">
+        <div class="card hover-card p-4 h-100">
+            <div class="card-body p-0">
+                <div class="d-flex align-items-start gap-3">
+                    <div class="bg-primary-subtle p-3 rounded-3 text-primary">
+                        <i class="bi bi-person-plus-fill fs-3"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-dark mb-1">Sección de Clientes</h5>
+                        <p class="text-muted">Crea nuevos clientes, edita datos de contacto y asigna un empleado a cargo de la cuenta.</p>
+                        <div class="d-flex gap-2 mt-3">
+                            <a href="/clientes/" class="btn btn-primary d-inline-flex align-items-center gap-2">
+                                <i class="bi bi-search"></i> Consultar
+                            </a>
+                            <a href="/cliente/crear/" class="btn btn-outline-primary d-inline-flex align-items-center gap-2" style="border-radius: 10px; font-weight: 600;">
+                                <i class="bi bi-plus-lg"></i> Agregar Cliente
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
     </div>
 
-
-
-
-
-    <div class="col-md-5 mb-4">
-
-
-        <div class="card shadow text-center p-4">
-
-
-            <h3>
-                👨‍💼 Empleados
-            </h3>
-
-
-            <p class="text-muted">
-                Crear, editar y administrar empleados
-            </p>
-
-
-            <a href="/empleados/" class="btn btn-success">
-                Gestionar Empleados
-            </a>
-
-
+    <div class="col-md-6 mb-4">
+        <div class="card hover-card p-4 h-100">
+            <div class="card-body p-0">
+                <div class="d-flex align-items-start gap-3">
+                    <div class="bg-success-subtle p-3 rounded-3 text-success">
+                        <i class="bi bi-person-workspace fs-3"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold text-dark mb-1">Sección de Empleados</h5>
+                        <p class="text-muted">Administra los asesores del equipo, edita su información y supervisa las fechas de registro.</p>
+                        <div class="d-flex gap-2 mt-3">
+                            <a href="/empleados/" class="btn btn-success text-white d-inline-flex align-items-center gap-2">
+                                <i class="bi bi-search"></i> Consultar
+                            </a>
+                            <a href="/empleado/crear/" class="btn btn-outline-success d-inline-flex align-items-center gap-2" style="border-radius: 10px; font-weight: 600;">
+                                <i class="bi bi-plus-lg"></i> Agregar Empleado
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-
-
     </div>
-
 
 </div>
-
 
 {% endblock %}

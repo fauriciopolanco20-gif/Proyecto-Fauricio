@@ -1,77 +1,54 @@
 {% extends 'base.html' %}
 
-
 {% block title %}
-Editar Empleado
+Editar Empleado | Sistema
 {% endblock %}
-
-
 
 {% block content %}
 
+<div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8">
 
-<div class="container mt-4">
+        <div class="card border-0 shadow-sm p-4">
+            <div class="card-body">
 
+                <h3 class="fw-bold text-dark mb-4" style="letter-spacing: -0.03em;">
+                    <i class="bi bi-pencil-square text-warning me-2"></i>Editar Empleado
+                </h3>
 
-    <div class="card shadow">
+                <form method="POST">
+                    {% csrf_token %}
 
+                    <!-- Campo Nombre -->
+                    <div class="mb-4">
+                        <label class="form-label">
+                            <i class="bi bi-person me-1 text-muted"></i> Nombre Completo del Empleado
+                        </label>
+                        <input 
+                            type="text"
+                            name="nombre"
+                            value="{{ empleado.nombre }}"
+                            class="form-control"
+                            required>
+                        <div class="form-text text-muted">Modifique el nombre completo del empleado.</div>
+                    </div>
 
-        <div class="card-body">
+                    <!-- Botones de Acción -->
+                    <div class="d-flex gap-2 mt-5">
+                        <button type="submit" class="btn btn-success text-white d-inline-flex align-items-center gap-2 px-4">
+                            <i class="bi bi-check-circle-fill"></i> Guardar Cambios
+                        </button>
+                        <a href="/empleados/" class="btn btn-secondary d-inline-flex align-items-center gap-2 px-4">
+                            <i class="bi bi-arrow-left"></i> Cancelar
+                        </a>
+                    </div>
 
+                </form>
 
-            <h3>
-                👨‍💼 Editar Empleado
-            </h3>
-
-
-
-            <form method="POST">
-
-                {% csrf_token %}
-
-
-
-                <div class="mb-3">
-
-                    <label class="form-label">
-                        Nombre
-                    </label>
-
-
-                    <input 
-                        type="text"
-                        name="nombre"
-                        value="{{ empleado.nombre }}"
-                        class="form-control">
-
-                </div>
-
-
-
-
-                <button class="btn btn-primary">
-                    Guardar cambios
-                </button>
-
-
-
-                <a href="/empleados/" class="btn btn-secondary">
-                    Cancelar
-                </a>
-
-
-
-            </form>
-
-
+            </div>
         </div>
 
-
     </div>
-
-
 </div>
-
-
 
 {% endblock %}
